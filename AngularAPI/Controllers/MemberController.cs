@@ -57,10 +57,9 @@ namespace AngularAPI.Controllers
                                     member.Id = Convert.ToInt32(myReader["Id"]);
                                     member.Email = myReader["Email"].ToString();
                                     member.Name = myReader["Name"].ToString();
-                                    // 密码匹配，生成 JWT Token
+
                                     var token = GenerateJwtToken(member);
 
-                                    // 创建响应对象并填充 Token 和其他信息
                                     var response = new LoginRequestResponse()
                                     {
                                         Result = true,
@@ -70,7 +69,7 @@ namespace AngularAPI.Controllers
                                         Name = member.Name
                                     };
 
-                                    return Ok(response); // 返回响应
+                                    return Ok(response); 
                                 }
                                 else
                                 {
