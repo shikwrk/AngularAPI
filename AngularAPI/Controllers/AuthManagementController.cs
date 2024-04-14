@@ -135,7 +135,6 @@ namespace AngularAPI.Controllers
         [Authorize]
         public IActionResult GetMemberInfo()
         {
-            // 获取用户的 ID、Email 和名字
             var userId = User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value;
             var email = User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Email)?.Value;
             var name = User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Name)?.Value;

@@ -15,9 +15,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-
-
-
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 // Add services to the container.
 
@@ -40,7 +37,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontEnd", policy =>
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("https://shangulardemo.azurewebsites.net")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials());

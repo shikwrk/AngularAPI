@@ -39,10 +39,10 @@ namespace AngularAPI.Controllers
                 string query = "SELECT * FROM dbo.tMembers WHERE Email = @Email";
                 string sqlDatasource = _config.GetConnectionString("AngularDBCon");
 
-                using (SqlConnection myCon = new SqlConnection(sqlDatasource))
+                using (SqlConnection myCon = new (sqlDatasource))
                 {
                     myCon.Open();
-                    using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                    using (SqlCommand myCommand = new(query, myCon))
                     {
                         myCommand.Parameters.AddWithValue("@Email", requestDTO.Email);
                         using (SqlDataReader myReader = myCommand.ExecuteReader())
